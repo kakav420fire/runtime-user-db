@@ -1,11 +1,19 @@
+@font-face {
+  font-family: "Ethnocentric";
+  src: url("./fonts/Ethnocentric.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+
 :root {
-  --bg-main: #091424;
-  --bg-card: rgba(15, 30, 50, 0.82);
-  --line: rgba(118, 164, 255, 0.22);
-  --text: #e8f2ff;
-  --muted: #95abd0;
-  --accent: #4f8fff;
-  --accent-2: #75b2ff;
+  --bg-main: #0f0f10;
+  --bg-card: rgba(25, 25, 27, 0.86);
+  --line: rgba(255, 255, 255, 0.06);
+  --text: #ededf0;
+  --muted: #b2b2bc;
+  --accent: #2a2a2e;
+  --accent-2: #34343b;
+  --brand-blue: #56a4ff;
   --danger: #ff7f7f;
 }
 
@@ -18,7 +26,7 @@ body {
   min-height: 100vh;
   font-family: Inter, system-ui, sans-serif;
   color: var(--text);
-  background: radial-gradient(circle at 20% -10%, #1f3a67 0, transparent 40%), var(--bg-main);
+  background: radial-gradient(circle at 20% -10%, #1e1e21 0, transparent 45%), var(--bg-main);
 }
 
 .background-grid {
@@ -54,15 +62,16 @@ body {
   width: 12px;
   height: 12px;
   border-radius: 999px;
-  background: linear-gradient(120deg, var(--accent), var(--accent-2));
-  box-shadow: 0 0 20px rgba(79, 143, 255, 0.65);
+  background: #7f7f88;
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.18);
 }
 
 .brand {
   margin: 0;
-  font-family: Orbitron, Inter, sans-serif;
+  font-family: Ethnocentric, Inter, sans-serif;
   font-weight: 800;
   letter-spacing: 0.07em;
+  color: var(--brand-blue);
 }
 
 .hero {
@@ -71,7 +80,7 @@ body {
 }
 
 .hero .tag {
-  color: var(--accent-2);
+  color: #c5c5d0;
   margin-bottom: 0.4rem;
 }
 
@@ -89,22 +98,29 @@ body {
 
 .card {
   background: var(--bg-card);
-  border: 1px solid rgba(109, 159, 255, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.14);
   border-radius: 18px;
   padding: 1.2rem;
-  max-width: 520px;
+  max-width: 760px;
   backdrop-filter: blur(10px);
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+}
+
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.8rem;
+  margin-bottom: 1rem;
 }
 
 .tabs {
   display: flex;
   gap: 0.8rem;
-  margin-bottom: 1rem;
 }
 
 .tab {
-  border: 1px solid rgba(122, 169, 255, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   background: transparent;
   color: var(--text);
   padding: 0.5rem 0.8rem;
@@ -113,8 +129,8 @@ body {
 }
 
 .tab.active {
-  border-color: var(--accent);
-  background: rgba(79, 143, 255, 0.15);
+  border-color: #6f6f79;
+  background: rgba(255, 255, 255, 0.08);
 }
 
 .form {
@@ -129,16 +145,16 @@ label {
 
 input {
   width: 100%;
-  border: 1px solid rgba(140, 179, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.18);
   border-radius: 10px;
   padding: 0.7rem 0.9rem;
-  background: rgba(8, 19, 32, 0.88);
+  background: rgba(10, 10, 12, 0.88);
   color: var(--text);
 }
 
 input:focus {
-  outline: 2px solid rgba(117, 178, 255, 0.35);
-  border-color: var(--accent-2);
+  outline: 2px solid rgba(255, 255, 255, 0.2);
+  border-color: #a3a3ad;
 }
 
 .btn {
@@ -163,6 +179,24 @@ input:focus {
   background: rgba(255, 255, 255, 0.08);
 }
 
+.btn.discord {
+  margin-top: 0;
+  background: #5865f2;
+}
+
+.inline-setting {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin-top: 0.4rem;
+  color: var(--muted);
+}
+
+.inline-setting input {
+  width: auto;
+  margin: 0;
+}
+
 .status {
   min-height: 1.4rem;
   color: var(--muted);
@@ -174,11 +208,51 @@ input:focus {
 
 .download {
   margin-top: 0.6rem;
-  border-top: 1px solid rgba(137, 178, 255, 0.25);
+  border-top: 1px solid rgba(255, 255, 255, 0.16);
   padding-top: 0.9rem;
+}
+
+.extras-grid {
+  margin-top: 1rem;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.8rem;
+}
+
+.mini-panel {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 12px;
+  padding: 0.8rem;
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.mini-panel h3 {
+  margin: 0 0 0.5rem;
+  font-size: 1rem;
+}
+
+.mini-panel ul {
+  margin: 0;
+  padding-left: 1.1rem;
+  color: var(--muted);
+}
+
+.mini-panel li + li {
+  margin-top: 0.35rem;
 }
 
 .hidden {
   display: none;
+}
+
+@media (max-width: 760px) {
+  .toolbar {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .extras-grid {
+    grid-template-columns: 1fr;
+  }
 }
 

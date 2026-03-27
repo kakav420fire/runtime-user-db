@@ -5,6 +5,7 @@ const submitBtn = document.getElementById("submitBtn");
 const statusEl = document.getElementById("status");
 const downloadPanel = document.getElementById("downloadPanel");
 const logoutBtn = document.getElementById("logoutBtn");
+const keepSignedIn = document.getElementById("keepSignedIn");
 
 let mode = "login";
 
@@ -36,6 +37,7 @@ showRegister.addEventListener("click", () => updateMode("register"));
 
 const STORAGE_KEY_USERS = "runtime.users.v1";
 const STORAGE_KEY_SESSION = "runtime.session.v1";
+const STORAGE_KEY_PERSIST = "runtime.persist.v1";
 
 function normalizeEmail(email) {
   return String(email || "").trim().toLowerCase();
@@ -53,6 +55,19 @@ function getUsers() {
 
 function setUsers(users) {
   localStorage.setItem(STORAGE_KEY_USERS, JSON.stringify(users));
+}
+
+function saveSession(email) {
+  const shouldPersist = Boolean(keepSignedIn?.checked);
+  const sessionPayload = JSON.stringify({ email, at: Date.now() });
+  localStorage.setItem(STORAGE_KEY_PERSIST, JSON.stringify(shouldPersist));
+  if (shouldPersist) {
+    localStorage.setItem(STORAGE_KEY_SESSION, sessionPayload);
+    sessionStorage.removeItem(STORAGE_KEY_SESSION);
+  } else {
+    sessionStorage.setItem(STORAGE_KEY_SESSION, sessionPayload);
+    localStorage.removeItem(STORAGE_KEY_SESSION);
+  }
 }
 
 async function sha256(text) {
@@ -95,7 +110,7 @@ authForm.addEventListener("submit", async (event) => {
       if (existing.passwordHash !== passwordHash) throw new Error("Invalid email or password.");
     }
 
-    localStorage.setItem(STORAGE_KEY_SESSION, JSON.stringify({ email, at: Date.now() }));
+    saveSession(email);
     setAuthenticatedUi(true, email);
   } catch (error) {
     setStatus(error.message || "Something went wrong.", true);
@@ -106,6 +121,7 @@ authForm.addEventListener("submit", async (event) => {
 
 logoutBtn.addEventListener("click", async () => {
   localStorage.removeItem(STORAGE_KEY_SESSION);
+  sessionStorage.removeItem(STORAGE_KEY_SESSION);
   authForm.reset();
   updateMode("login");
   setAuthenticatedUi(false);
@@ -116,7 +132,12 @@ logoutBtn.addEventListener("click", async () => {
 
 async function boot() {
   try {
-    const raw = localStorage.getItem(STORAGE_KEY_SESSION);
+    const persistedRaw = localStorage.getItem(STORAGE_KEY_PERSIST);
+    const shouldPersist = persistedRaw ? JSON.parse(persistedRaw) : false;
+    if (keepSignedIn) keepSignedIn.checked = Boolean(shouldPersist);
+    const raw = shouldPersist
+      ? localStorage.getItem(STORAGE_KEY_SESSION)
+      : sessionStorage.getItem(STORAGE_KEY_SESSION);
     const session = raw ? JSON.parse(raw) : null;
     if (session?.email) setAuthenticatedUi(true, session.email);
   } catch (_err) {

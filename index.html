@@ -4,13 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Runtime IDE</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="./styles.css" />
   </head>
   <body>
     <div class="background-grid"></div>
@@ -32,9 +26,12 @@
       </section>
 
       <section class="card">
-        <div class="tabs">
-          <button id="showLogin" class="tab active">Login</button>
-          <button id="showRegister" class="tab">Create account</button>
+        <div class="toolbar">
+          <div class="tabs">
+            <button id="showLogin" class="tab active">Login</button>
+            <button id="showRegister" class="tab">Create account</button>
+          </div>
+          <a class="btn discord" href="https://discord.gg/RJFxESAquw" target="_blank" rel="noreferrer">Discord</a>
         </div>
 
         <form id="authForm" class="form">
@@ -42,6 +39,10 @@
           <input id="email" name="email" type="email" required placeholder="you@example.com" />
           <label for="password">Password</label>
           <input id="password" name="password" type="password" required minlength="8" placeholder="At least 8 characters" />
+          <label class="inline-setting" for="keepSignedIn">
+            <input id="keepSignedIn" type="checkbox" />
+            Keep me signed in on this browser
+          </label>
           <button id="submitBtn" class="btn primary" type="submit">Login</button>
         </form>
 
@@ -49,12 +50,31 @@
 
         <div id="downloadPanel" class="download hidden">
           <p>You are logged in. Runtime download is unlocked.</p>
-          <a class="btn primary" href="https://github.com/" target="_blank" rel="noreferrer">Download Runtime</a>
+          <a id="runtimeDownloadLink" class="btn primary" href="https://example.com/runtime-download" target="_blank" rel="noreferrer">Download Runtime</a>
+        </div>
+
+        <div class="extras-grid">
+          <section class="mini-panel">
+            <h3>Features</h3>
+            <ul>
+              <li>Modern minimal interface</li>
+              <li>Fast account unlock flow</li>
+              <li>One-click Runtime download</li>
+            </ul>
+          </section>
+          <section class="mini-panel">
+            <h3>Settings</h3>
+            <ul>
+              <li>Keep me signed in</li>
+              <li>Session status indicator</li>
+              <li>Quick logout</li>
+            </ul>
+          </section>
         </div>
       </section>
     </main>
 
-    <script src="/app.js"></script>
+    <script src="./app.js"></script>
   </body>
 </html>
 
