@@ -35,6 +35,47 @@ function setAuthenticatedUi(isAuthenticated, email = "") {
 showLogin.addEventListener("click", () => updateMode("login"));
 showRegister.addEventListener("click", () => updateMode("register"));
 
+function setupRevealAnimations() {
+  const els = Array.from(document.querySelectorAll(".reveal"));
+  if (!("IntersectionObserver" in window)) {
+    els.forEach((el) => el.classList.add("is-visible"));
+    return;
+  }
+
+  const io = new IntersectionObserver(
+    (entries) => {
+      for (const entry of entries) {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("is-visible");
+          io.unobserve(entry.target);
+        }
+      }
+    },
+    { root: null, threshold: 0.12 }
+  );
+
+  els.forEach((el) => io.observe(el));
+}
+
+function setupGridParallax() {
+  const grid = document.querySelector(".background-grid");
+  if (!grid) return;
+  let raf = 0;
+  window.addEventListener(
+    "pointermove",
+    (e) => {
+      if (raf) return;
+      raf = requestAnimationFrame(() => {
+        raf = 0;
+        const x = (e.clientX / window.innerWidth - 0.5) * 6;
+        const y = (e.clientY / window.innerHeight - 0.5) * 6;
+        grid.style.transform = `translate(${x}px, ${y}px)`;
+      });
+    },
+    { passive: true }
+  );
+}
+
 const STORAGE_KEY_USERS = "runtime.users.v1";
 const STORAGE_KEY_SESSION = "runtime.session.v1";
 const STORAGE_KEY_PERSIST = "runtime.persist.v1";
@@ -146,4 +187,7 @@ async function boot() {
 }
 
 boot();
+
+setupRevealAnimations();
+setupGridParallax();
 

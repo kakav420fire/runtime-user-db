@@ -10,28 +10,56 @@
     <div class="background-grid"></div>
     <main class="shell">
       <header class="topbar">
-        <div class="brand-wrap">
-          <div class="logo-dot"></div>
-          <h1 class="brand">Runtime</h1>
-        </div>
-        <button id="logoutBtn" class="btn ghost hidden">Logout</button>
+        <a class="brand-wrap" href="#" aria-label="Runtime home">
+          <span class="brand-text">Runtime</span>
+        </a>
+        <nav class="nav">
+          <a class="nav-link" href="#features">Features</a>
+          <a class="nav-link" href="#download">Download</a>
+          <a class="btn discord" href="https://discord.gg/RJFxESAquw" target="_blank" rel="noreferrer">Discord</a>
+          <button id="logoutBtn" class="btn ghost hidden">Logout</button>
+        </nav>
       </header>
 
-      <section class="hero">
-        <p class="tag">Sleek coding environment</p>
-        <h2>Build, run, and ship from one modern IDE.</h2>
+      <section class="hero reveal">
+        <div class="hero-logo" aria-label="RTM Runtime logo">
+          <svg class="rtm" viewBox="0 0 840 240" role="img" aria-label="RTM">
+            <defs>
+              <linearGradient id="rtmFill" x1="0" x2="1" y1="0" y2="0">
+                <stop offset="0%" stop-color="#e9eef7" stop-opacity="0.88" />
+                <stop offset="100%" stop-color="#d9e6ff" stop-opacity="0.74" />
+              </linearGradient>
+            </defs>
+            <g fill="url(#rtmFill)">
+              <!-- R -->
+              <path d="M70 55h190c44 0 80 36 80 80 0 32-19 60-47 73l47 0v27H265l-64-52h-47v52H70V55zm84 54v46h104c14 0 26-10 26-23s-12-23-26-23H154z"/>
+              <!-- T -->
+              <path d="M360 55h260v54H532v126h-84V109h-88V55z"/>
+              <!-- M -->
+              <path d="M640 55h70l60 92 60-92h70v180h-80V165l-50 70h-2l-50-70v70h-80V55z"/>
+            </g>
+          </svg>
+          <div class="runtime-word">RUNTIME</div>
+        </div>
+
+        <p class="tagline">A sleek IDE download hub.</p>
         <p class="subtext">
-          Create a Runtime account to unlock your download. Accounts are saved locally in your browser for a fast, GitHub Pages-friendly setup.
+          Create an account (saved locally in your browser) to unlock the Runtime download.
         </p>
+
+        <div class="hero-cta">
+          <a class="btn primary" href="#download">Get Runtime</a>
+          <a class="btn ghost" href="#features">See features</a>
+        </div>
       </section>
 
-      <section class="card">
-        <div class="toolbar">
+      <section id="download" class="card reveal">
+        <div class="card-head">
           <div class="tabs">
             <button id="showLogin" class="tab active">Login</button>
             <button id="showRegister" class="tab">Create account</button>
           </div>
-          <a class="btn discord" href="https://discord.gg/RJFxESAquw" target="_blank" rel="noreferrer">Discord</a>
+          <div class="microcopy">Accounts are local to this browser.</div>
         </div>
 
         <form id="authForm" class="form">
@@ -52,24 +80,21 @@
           <p>You are logged in. Runtime download is unlocked.</p>
           <a id="runtimeDownloadLink" class="btn primary" href="https://example.com/runtime-download" target="_blank" rel="noreferrer">Download Runtime</a>
         </div>
+      </section>
 
-        <div class="extras-grid">
-          <section class="mini-panel">
-            <h3>Features</h3>
-            <ul>
-              <li>Modern minimal interface</li>
-              <li>Fast account unlock flow</li>
-              <li>One-click Runtime download</li>
-            </ul>
-          </section>
-          <section class="mini-panel">
-            <h3>Settings</h3>
-            <ul>
-              <li>Keep me signed in</li>
-              <li>Session status indicator</li>
-              <li>Quick logout</li>
-            </ul>
-          </section>
+      <section id="features" class="features reveal">
+        <div class="feature-card">
+          <h3>Fast setup</h3>
+          <p>One simple sign-in unlocks your download.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Clean workflow</h3>
+          <p>Minimal UI, focused actions, modern feel.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Community</h3>
+          <p>Join Discord to get updates and share builds.</p>
+          <a class="btn discord small" href="https://discord.gg/RJFxESAquw" target="_blank" rel="noreferrer">Open Discord</a>
         </div>
       </section>
     </main>
