@@ -23,12 +23,9 @@
           <div class="runtime-word">RUNTIME</div>
         </div>
 
-        <p class="tagline">A sleek IDE download hub.</p>
-        <p class="subtext">Create an account (saved locally in your browser) to unlock the Runtime download.</p>
-
         <div class="hero-cta">
           <a class="btn primary" href="#download">Get Runtime</a>
-          <a class="btn ghost" href="#features">Features</a>
+          <a class="btn ghost" href="#download">Login</a>
         </div>
       </section>
 
@@ -42,10 +39,10 @@
         </div>
 
         <form id="authForm" class="form">
-          <label for="email">Email</label>
-          <input id="email" name="email" type="email" required placeholder="you@example.com" />
-          <label for="password">Password</label>
-          <input id="password" name="password" type="password" required minlength="8" placeholder="At least 8 characters" />
+          <label class="sr-only" for="email">Email</label>
+          <input id="email" name="email" type="email" required placeholder="Email" />
+          <label class="sr-only" for="password">Password</label>
+          <input id="password" name="password" type="password" required minlength="8" placeholder="Password (8+ chars)" />
           <label class="inline-setting" for="keepSignedIn">
             <input id="keepSignedIn" type="checkbox" />
             Keep me signed in on this browser
@@ -58,22 +55,6 @@
         <div id="downloadPanel" class="download hidden">
           <p>You are logged in. Runtime download is unlocked.</p>
           <a id="runtimeDownloadLink" class="btn primary" href="https://example.com/runtime-download" target="_blank" rel="noreferrer">Download Runtime</a>
-        </div>
-      </section>
-
-      <section id="features" class="features reveal">
-        <div class="feature-card">
-          <h3>Fast setup</h3>
-          <p>One simple sign-in unlocks your download.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Minimal UI</h3>
-          <p>Focused actions with a clean, modern look.</p>
-        </div>
-        <div class="feature-card">
-          <h3>Discord</h3>
-          <p>Updates, builds, and community support.</p>
-          <a class="btn discord small" href="https://discord.gg/RJFxESAquw" target="_blank" rel="noreferrer">Open Discord</a>
         </div>
       </section>
     </main>
