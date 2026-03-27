@@ -24,8 +24,7 @@
         </div>
 
         <div class="hero-cta">
-          <a class="btn primary" href="#download">Get Runtime</a>
-          <a class="btn ghost" href="#download">Login</a>
+          <a class="btn primary" href="#download">Login</a>
         </div>
       </section>
 
@@ -55,6 +54,30 @@
         <div id="downloadPanel" class="download hidden">
           <p>You are logged in. Runtime download is unlocked.</p>
           <a id="runtimeDownloadLink" class="btn primary" href="https://example.com/runtime-download" target="_blank" rel="noreferrer">Download Runtime</a>
+        </div>
+      </section>
+
+      <section id="appPanel" class="dashboard reveal hidden">
+        <div class="dash-top">
+          <h2>Runtime Hub</h2>
+          <p id="dashEmail" class="dash-email"></p>
+        </div>
+        <div class="dash-grid">
+          <article class="dash-card">
+            <h3>Quick Download</h3>
+            <p>Get the latest Runtime build.</p>
+            <a class="btn primary" href="https://example.com/runtime-download" target="_blank" rel="noreferrer">Download</a>
+          </article>
+          <article class="dash-card">
+            <h3>Community</h3>
+            <p>Join the Runtime Discord and follow updates.</p>
+            <a class="btn discord" href="https://discord.gg/RJFxESAquw" target="_blank" rel="noreferrer">Open Discord</a>
+          </article>
+          <article class="dash-card">
+            <h3>Account</h3>
+            <p>Switch accounts any time with logout.</p>
+            <button id="dashLogoutBtn" class="btn ghost" type="button">Logout</button>
+          </article>
         </div>
       </section>
     </main>

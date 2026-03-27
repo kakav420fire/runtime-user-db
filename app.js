@@ -6,6 +6,9 @@ const statusEl = document.getElementById("status");
 const downloadPanel = document.getElementById("downloadPanel");
 const logoutBtn = document.getElementById("logoutBtn");
 const keepSignedIn = document.getElementById("keepSignedIn");
+const appPanel = document.getElementById("appPanel");
+const dashEmail = document.getElementById("dashEmail");
+const dashLogoutBtn = document.getElementById("dashLogoutBtn");
 
 let mode = "login";
 
@@ -29,6 +32,8 @@ function setAuthenticatedUi(isAuthenticated, email = "") {
   authForm.classList.toggle("hidden", isAuthenticated);
   showLogin.classList.toggle("hidden", isAuthenticated);
   showRegister.classList.toggle("hidden", isAuthenticated);
+  appPanel?.classList.toggle("hidden", !isAuthenticated);
+  if (dashEmail) dashEmail.textContent = isAuthenticated ? email : "";
   if (isAuthenticated) setStatus(`Logged in as ${email}`);
 }
 
@@ -169,6 +174,10 @@ logoutBtn.addEventListener("click", async () => {
   authForm.classList.remove("hidden");
   showLogin.classList.remove("hidden");
   showRegister.classList.remove("hidden");
+});
+
+dashLogoutBtn?.addEventListener("click", () => {
+  logoutBtn.click();
 });
 
 async function boot() {
