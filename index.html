@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Runtime IDE</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <div class="background-grid"></div>
+    <main class="shell">
+      <header class="topbar">
+        <div class="brand-wrap">
+          <div class="logo-dot"></div>
+          <h1 class="brand">Runtime</h1>
+        </div>
+        <button id="logoutBtn" class="btn ghost hidden">Logout</button>
+      </header>
+
+      <section class="hero">
+        <p class="tag">Sleek coding environment</p>
+        <h2>Build, run, and ship from one modern IDE.</h2>
+        <p class="subtext">
+          Create a Runtime account to unlock your download. Accounts are saved locally in your browser for a fast, GitHub Pages-friendly setup.
+        </p>
+      </section>
+
+      <section class="card">
+        <div class="tabs">
+          <button id="showLogin" class="tab active">Login</button>
+          <button id="showRegister" class="tab">Create account</button>
+        </div>
+
+        <form id="authForm" class="form">
+          <label for="email">Email</label>
+          <input id="email" name="email" type="email" required placeholder="you@example.com" />
+          <label for="password">Password</label>
+          <input id="password" name="password" type="password" required minlength="8" placeholder="At least 8 characters" />
+          <button id="submitBtn" class="btn primary" type="submit">Login</button>
+        </form>
+
+        <p id="status" class="status"></p>
+
+        <div id="downloadPanel" class="download hidden">
+          <p>You are logged in. Runtime download is unlocked.</p>
+          <a class="btn primary" href="https://github.com/" target="_blank" rel="noreferrer">Download Runtime</a>
+        </div>
+      </section>
+    </main>
+
+    <script src="/app.js"></script>
+  </body>
+</html>
+
