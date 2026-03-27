@@ -29,33 +29,13 @@ body {
   background: radial-gradient(circle at 20% -10%, #1e1e21 0, transparent 45%), var(--bg-main);
 }
 
-.nav {
-  display: flex;
-  align-items: center;
-  gap: 0.8rem;
-}
-
-.nav-link {
-  color: rgba(255, 255, 255, 0.72);
-  text-decoration: none;
-  padding: 0.45rem 0.55rem;
-  border-radius: 10px;
-  transition: background 160ms ease, color 160ms ease, transform 160ms ease;
-}
-
-.nav-link:hover {
-  background: rgba(255, 255, 255, 0.06);
-  color: rgba(255, 255, 255, 0.92);
-  transform: translateY(-1px);
-}
-
 .background-grid {
   position: fixed;
   inset: 0;
   background-image: linear-gradient(to right, var(--line) 1px, transparent 1px),
     linear-gradient(to bottom, var(--line) 1px, transparent 1px);
   background-size: 32px 32px;
-  opacity: 0.35;
+  opacity: 0.28;
   pointer-events: none;
   mask-image: radial-gradient(circle at 30% 0%, rgba(0, 0, 0, 1) 0%, rgba(0, 0, 0, 0) 62%);
 }
@@ -71,44 +51,45 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  position: sticky;
-  top: 0;
-  padding: 0.75rem 0;
+  padding: 0.8rem 0;
   z-index: 5;
-  backdrop-filter: blur(10px);
 }
 
-.brand-wrap {
-  display: flex;
-  gap: 0.6rem;
-  align-items: center;
-  text-decoration: none;
-}
-
-.brand-text {
+.brand-mini {
   font-family: Ethnocentric, Inter, sans-serif;
   font-weight: 800;
   letter-spacing: 0.08em;
   color: var(--brand-blue);
   font-size: 1.05rem;
+  opacity: 0.95;
 }
 
-.hero {
-  margin-top: 1.8rem;
-  margin-bottom: 2.2rem;
-}
-
-.hero-logo {
-  margin: 1.8rem 0 1rem;
-  display: grid;
-  justify-items: center;
+.top-actions {
+  display: flex;
+  align-items: center;
   gap: 0.6rem;
 }
 
-.rtm {
-  width: min(840px, 92vw);
-  height: auto;
-  filter: drop-shadow(0 18px 50px rgba(0, 0, 0, 0.55));
+.hero {
+  margin-top: 1.4rem;
+  margin-bottom: 1.6rem;
+}
+
+.logo-block {
+  margin: 2.2rem 0 0.9rem;
+  display: grid;
+  justify-items: center;
+  gap: 0.45rem;
+}
+
+.rtm-text {
+  font-family: Ethnocentric, Inter, sans-serif;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  line-height: 0.9;
+  font-size: clamp(4.2rem, 14vw, 8.8rem);
+  color: rgba(233, 238, 247, 0.82);
+  text-shadow: 0 18px 70px rgba(0, 0, 0, 0.62);
 }
 
 .runtime-word {
@@ -330,12 +311,6 @@ input:focus {
 }
 
 @media (max-width: 760px) {
-  .nav {
-    gap: 0.35rem;
-  }
-  .nav-link {
-    display: none;
-  }
   .features {
     grid-template-columns: 1fr;
   }
