@@ -33,6 +33,14 @@ function setAuthenticatedUi(isAuthenticated, email = "") {
   showLogin.classList.toggle("hidden", isAuthenticated);
   showRegister.classList.toggle("hidden", isAuthenticated);
   appPanel?.classList.toggle("hidden", !isAuthenticated);
+  if (appPanel) {
+    if (isAuthenticated) {
+      appPanel.classList.add("is-visible", "panel-in");
+      setTimeout(() => appPanel.classList.remove("panel-in"), 420);
+    } else {
+      appPanel.classList.remove("panel-in");
+    }
+  }
   if (dashEmail) dashEmail.textContent = isAuthenticated ? email : "";
   if (isAuthenticated) setStatus(`Logged in as ${email}`);
 }
