@@ -13,7 +13,7 @@
   --muted: #b2b2bc;
   --accent: #2a2a2e;
   --accent-2: #34343b;
-  --brand-blue: #56a4ff;
+  --brand-blue: #8fa6d7;
   --danger: #ff7f7f;
 }
 
@@ -24,7 +24,7 @@
 body {
   margin: 0;
   min-height: 100vh;
-  font-family: Inter, system-ui, sans-serif;
+  font-family: Ethnocentric, Inter, system-ui, sans-serif;
   color: var(--text);
   background: radial-gradient(circle at 20% -10%, #1e1e21 0, transparent 45%), var(--bg-main);
 }
@@ -88,14 +88,14 @@ body {
   letter-spacing: 0.04em;
   line-height: 0.9;
   font-size: clamp(4.2rem, 14vw, 8.8rem);
-  color: rgba(233, 238, 247, 0.82);
+  color: var(--brand-blue);
   text-shadow: 0 18px 70px rgba(0, 0, 0, 0.62);
 }
 
 .runtime-word {
   font-family: Ethnocentric, Inter, sans-serif;
   letter-spacing: 0.18em;
-  color: rgba(233, 238, 247, 0.78);
+  color: var(--brand-blue);
   font-size: clamp(1.1rem, 2.4vw, 1.55rem);
   text-shadow: 0 8px 20px rgba(0, 0, 0, 0.45);
 }
@@ -154,7 +154,7 @@ body {
 }
 
 .microcopy {
-  color: rgba(255, 255, 255, 0.55);
+  color: rgba(255, 255, 255, 0.5);
   font-size: 0.9rem;
 }
 
@@ -194,6 +194,7 @@ input {
   padding: 0.7rem 0.9rem;
   background: rgba(10, 10, 12, 0.88);
   color: var(--text);
+  font-family: Ethnocentric, Inter, system-ui, sans-serif;
 }
 
 input:focus {
